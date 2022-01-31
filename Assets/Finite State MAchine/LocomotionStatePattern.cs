@@ -57,22 +57,22 @@ public class InAirState : LocomotionState
 {
     public void Crouch(LocomotionContext context)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void Fall(LocomotionContext context)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void Jump(LocomotionContext context)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void Land(LocomotionContext context)
     {
-        throw new System.NotImplementedException();
+       context.SetState(new GroundedState());
     }
 }
 
@@ -80,21 +80,21 @@ public class CrouchingState : LocomotionState
 {
     public void Crouch(LocomotionContext context)
     {
-        throw new System.NotImplementedException();
+        context.SetState(new GroundedState());
     }
 
     public void Fall(LocomotionContext context)
     {
-        throw new System.NotImplementedException();
+        context.SetState(new InAirState());
     }
 
     public void Jump(LocomotionContext context)
     {
-        throw new System.NotImplementedException();
+        context.SetState(new GroundedState());
     }
 
     public void Land(LocomotionContext context)
     {
-        throw new System.NotImplementedException();
+        
     }
 }

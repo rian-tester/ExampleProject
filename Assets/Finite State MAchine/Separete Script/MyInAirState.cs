@@ -14,7 +14,7 @@ public class MyInAirState : MovementState
     }
     public void Land(MovementContext context)
     {
-        throw new System.NotImplementedException();
+        context.SetState(new MyGroundedState());
     }
     public void Crouch(MovementContext context)
     {

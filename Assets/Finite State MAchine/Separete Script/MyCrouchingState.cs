@@ -6,7 +6,7 @@ public class MyCrouchingState : MovementState
 {
     public void Jump(MovementContext context)
     {
-        throw new System.NotImplementedException();
+        context.SetState(new MyGroundedState());
     }
     public void Fall(MovementContext context)
     {
@@ -18,6 +18,6 @@ public class MyCrouchingState : MovementState
     }
     public void Crouch(MovementContext context)
     {
-        throw new System.NotImplementedException();
+        context.SetState(new MyGroundedState());
     }
 }

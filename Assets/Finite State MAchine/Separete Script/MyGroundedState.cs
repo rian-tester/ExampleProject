@@ -6,11 +6,11 @@ public class MyGroundedState : MovementState
 {
     public void Jump (MovementContext context)
     {
-        throw new System.NotImplementedException();
+        context.SetState(new MyInAirState());
     }
     public void Fall(MovementContext context)
     {
-        throw new System.NotImplementedException();
+        context.SetState(new MyInAirState());
     }
     public void Land(MovementContext context)
     {
@@ -18,6 +18,6 @@ public class MyGroundedState : MovementState
     }
     public void Crouch (MovementContext context)
     {
-        throw new System.NotImplementedException();
+        context.SetState(new MyCrouchingState());
     }
 }

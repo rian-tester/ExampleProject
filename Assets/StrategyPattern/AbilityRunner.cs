@@ -1,28 +1,35 @@
 using UnityEngine;
 
 public class AbilityRunner : MonoBehaviour {
-    enum Ability
-    {
-        Fireball,
-        Rage,
-        Heal
-    }
-
-    [SerializeField] Ability currentAbility = Ability.Fireball;
+    [SerializeField] IAbility currentAbility = new RageAbilty();
 
     public void UseAbility()
     {
-        switch (currentAbility)
-        {
-            case Ability.Fireball:
-                Debug.Log("Launch Fireball");
-                break;
-            case Ability.Rage:
-                Debug.Log("I'm always angry");
-                break;
-            case Ability.Heal:
-                Debug.Log("Here eat this!");
-                break;
-        }
+        currentAbility.Use();
+    }
+}
+public interface IAbility
+{
+    void Use();
+}
+public class FireballAbility : IAbility
+{
+    public void Use()
+    {
+        Debug.Log("Launch Fireball");
+    }
+}
+public class RageAbilty : IAbility
+{
+    public void Use()
+    {
+        Debug.Log("I'm always angry");
+    }
+}
+public class HealAbility : IAbility
+{
+    public void Use()
+    {
+        Debug.Log("Here eat this!");
     }
 }

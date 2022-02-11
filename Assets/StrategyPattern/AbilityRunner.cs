@@ -12,6 +12,22 @@ public interface IAbility
 {
     void Use(GameObject currentGameObject);
 }
+public class SequenceComposite : IAbility
+{
+    public IAbility[] children;
+    public SequenceComposite(IAbility[] children)
+    {
+        this.children = children;
+    }
+
+    public void Use(GameObject currentGameObject)
+    {
+       foreach (var child in children)
+        {
+            child.Use(currentGameObject);
+        }
+    }
+}
 public class DelayedDecorator : IAbility
 {
     private IAbility wrappedAbility;

@@ -12,6 +12,21 @@ public interface IAbility
 {
     void Use(GameObject currentGameObject);
 }
+public class DelayedDecorator : IAbility
+{
+    private IAbility wrappedAbility;
+
+    public DelayedDecorator(IAbility wrappedAbility)
+    {
+        this.wrappedAbility = wrappedAbility;
+    }
+
+    public void Use(GameObject currentGameObject)
+    {
+        // do some delayed operation
+        wrappedAbility.Use(currentGameObject);
+    }
+}
 public class FireballAbility : IAbility
 {
     public void Use(GameObject currentGameObject)

@@ -1,8 +1,18 @@
 using UnityEngine;
 
 public class AbilityRunner : MonoBehaviour {
-    [SerializeField] IAbility currentAbility = new DelayedDecorator( new RageAbilty());
+    //[SerializeField] IAbility currentAbility = new DelayedDecorator( new RageAbilty());
+    // example for decorator pattern
 
+    [SerializeField]
+    IAbility currentAbility =
+        new SequenceComposite(
+            new IAbility[] {
+                new HealAbility(),
+                new RageAbilty (),
+                new DelayedDecorator(new RageAbilty())
+                }
+            );
     public void UseAbility()
     {
         currentAbility.Use(gameObject);

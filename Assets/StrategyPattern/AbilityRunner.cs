@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class AbilityRunner : MonoBehaviour {
-    [SerializeField] IAbility currentAbility = new RageAbilty();
+    [SerializeField] IAbility currentAbility = new DelayedDecorator( new RageAbilty());
 
     public void UseAbility()
     {

@@ -452,30 +452,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1431007698}
-        m_TargetAssemblyTypeName: MVPDebugger, Assembly-CSharp
-        m_MethodName: UpdateUI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1682407503}
-        m_TargetAssemblyTypeName: MVPHealth, Assembly-CSharp
-        m_MethodName: ResetHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1682407503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,7 +465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullHelath: 100
-  drainPerSecond: 2
+  drainPerSecond: 5
 --- !u!1 &1698934476
 GameObject:
   m_ObjectHideFlags: 0

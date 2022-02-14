@@ -1,7 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 
 public class MVPLevel : MonoBehaviour
@@ -13,6 +13,8 @@ public class MVPLevel : MonoBehaviour
     [SerializeField] private float secondsForExperince;
 
     public UnityEvent onLevelUp;
+
+    public event Action onLevelUpAction;
 
     
 
@@ -31,6 +33,10 @@ public class MVPLevel : MonoBehaviour
         if (GetLevel() > level)
         {
             onLevelUp.Invoke ();
+            if (onLevelUpAction != null)
+            {
+                onLevelUpAction();
+            }
         }
     }
     public int GetExperience()

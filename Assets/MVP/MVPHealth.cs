@@ -1,15 +1,14 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MVPHealth : MonoBehaviour
 {
-    [SerializeField] float fullHelath = 100f;
+    [SerializeField] float fullHealth = 100f;
     [SerializeField] float drainPerSecond = 2f;
     float currentHealth = 0f;
 
-    [SerializeField] Image healthBar;
+    public event Action onHealthChange;
 
     private void Awake()
     {
@@ -28,22 +27,22 @@ public class MVPHealth : MonoBehaviour
     {
         return currentHealth;
     }
+    public float GetFullHealth()
+    {
+        return fullHealth;
+    }
     public void ResetHealth()
     {
-        currentHealth = fullHelath;
-        UpdateUI();
+        currentHealth = fullHealth;
+        if (onHealthChange != null) onHealthChange();
     }
     private IEnumerator HealthDrain()
     {
         while (currentHealth > 0)
         {
             currentHealth -= drainPerSecond;
-            UpdateUI();
+            if (onHealthChange != null) onHealthChange();
             yield return new WaitForSeconds(1);
         }
-    }
-    private void UpdateUI()
-    {
-        healthBar.fillAmount = currentHealth / fullHelath;
     }
 }

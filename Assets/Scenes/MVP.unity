@@ -526,6 +526,7 @@ GameObject:
   - component: {fileID: 1431007701}
   - component: {fileID: 1431007700}
   - component: {fileID: 1431007699}
+  - component: {fileID: 1431007703}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -618,6 +619,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1431007703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431007697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 444a044744b02364d9f6c00015942d31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: {fileID: 1682407502}
+  health: {fileID: 1682407503}
+  levelText: {fileID: 2124512600}
+  experienceText: {fileID: 954466382}
+  increaseXPButton: {fileID: 406958661}
+  healthBar: {fileID: 1067991116}
 --- !u!1 &1682407500
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,24 +684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experiencePerGain: 40
-  levelText: {fileID: 2124512600}
-  experienceText: {fileID: 954466382}
-  increaseXPButton: {fileID: 406958661}
-  onLevelUp:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1848718601}
-        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  resetHealthParticle: {fileID: 1848718601}
 --- !u!114 &1682407503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -695,9 +697,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a19ab9924f5654c9f6951d1f116b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullHelath: 100
+  fullHealth: 100
   drainPerSecond: 5
-  healthBar: {fileID: 1067991116}
 --- !u!1 &1698934476
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,7 +908,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:

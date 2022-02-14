@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
 
 
 public class MVPLevel : MonoBehaviour
@@ -11,9 +8,8 @@ public class MVPLevel : MonoBehaviour
     int experiencePoints = 0;
     [SerializeField] int experiencePerGain;
     public int ExperiencePerGain { get => experiencePerGain; }
-    //[SerializeField] private float secondsForExperince;
 
-    public UnityEvent onLevelUp;
+    [SerializeField] ParticleSystem resetHealthParticle;
 
     public event Action onLevelUpAction;
     public event Action onExperienceChange;
@@ -25,7 +21,7 @@ public class MVPLevel : MonoBehaviour
         onExperienceChange();
         if (GetLevel() > level)
         {
-            onLevelUp.Invoke ();
+            resetHealthParticle.Play();
             if (onLevelUpAction != null)
             {
                 onLevelUpAction();

@@ -14,7 +14,7 @@ namespace LawOfDemeter
             Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
             
             print(player.health);
-            gunUI.RedrawUI();
+            gunUI.RedrawUI(player.gun);
         }
     }
 }

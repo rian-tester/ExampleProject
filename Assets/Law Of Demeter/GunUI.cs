@@ -6,11 +6,9 @@ namespace LawOfDemeter
 {
     public class GunUI : MonoBehaviour
     {
-        public void RedrawUI()
+        public void RedrawUI(Gun gun)
         {
-            Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-
-            print(player.gun.ammo.roundsLeft);
+           print(gun.ammo.roundsLeft);
         }
     }
 }

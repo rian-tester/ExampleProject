@@ -10,34 +10,19 @@ public class MVPLevel : MonoBehaviour
     int pointPerLevel = 200;
     int experiencePoints = 0;
     [SerializeField] int experiencePerGain;
+    public int ExperiencePerGain { get => experiencePerGain; }
     //[SerializeField] private float secondsForExperince;
-
-    [SerializeField] Text levelText;
-    [SerializeField] Text experienceText;
-    [SerializeField] Button increaseXPButton;
-
-
 
     public UnityEvent onLevelUp;
 
     public event Action onLevelUpAction;
+    public event Action onExperienceChange;
 
-    private void Start()
-    {
-        UpdateUI();
-        increaseXPButton.onClick.AddListener(() => GainExperience(experiencePerGain));
-    }
-    public void UpdateUI()
-    {
-        levelText.text = $"Level : {GetLevel()}";
-        experienceText.text = $"Exp : {GetExperience()}";
-
-    }
     public void GainExperience(int points)
     {
         int level = GetLevel();
         experiencePoints += points;
-        UpdateUI();
+        onExperienceChange();
         if (GetLevel() > level)
         {
             onLevelUp.Invoke ();

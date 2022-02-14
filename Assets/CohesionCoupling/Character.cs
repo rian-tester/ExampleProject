@@ -11,17 +11,10 @@ namespace CohesionCoupling
         [SerializeField]AudioClip shout;
 
         float health;
-
-        public void KnockBack()
+        public void TakeHit()
         {
             animator.SetTrigger("KnockBack");
-        }
-        public void Shout()
-        {
             audioSource.PlayOneShot(shout);
-        }
-        public void TakeDamage()
-        {
             health -= 10f;
         }
     }

@@ -16,8 +16,6 @@ public class MVPLevel : MonoBehaviour
 
     public event Action onLevelUpAction;
 
-    
-
     private IEnumerator Start()
     {
         while (true)

@@ -15,11 +15,11 @@ public class MVPHealth : MonoBehaviour
     }
     private void OnEnable()
     {
-        GetComponent<Level>().onLevelUpAction += ResetHealth;
+        GetComponent<MVPLevel>().onLevelUpAction += ResetHealth;
     }
     private void OnDisable()
     {
-        GetComponent<Level>().onLevelUpAction -= ResetHealth;
+        GetComponent<MVPLevel>().onLevelUpAction -= ResetHealth;
     }
     public float GetHealth()
     {

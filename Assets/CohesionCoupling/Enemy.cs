@@ -6,18 +6,14 @@ namespace CohesionCoupling
 {
     public class Enemy : MonoBehaviour
     {
-        Character character;
-
-        private void Start()
+        public void Attack(IAttackable target)
         {
-            character = GameObject.FindObjectOfType<Character>();
+            target.TakeHit();
         }
-        public void Attack()
-        {
-            character.KnockBack();
-            character.Shout();
-            character.TakeDamage();
-        }
+    }
+    public interface IAttackable
+    {
+        void TakeHit();
     }
 }
 

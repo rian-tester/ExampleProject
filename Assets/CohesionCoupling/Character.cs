@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace CohesionCoupling
 {
-    public class Character : MonoBehaviour
+    public class Character : MonoBehaviour, IAttackable
     {
         [SerializeField] Animator animator;
         [SerializeField]AudioSource audioSource;

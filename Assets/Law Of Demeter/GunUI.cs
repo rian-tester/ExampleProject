@@ -8,7 +8,7 @@ namespace LawOfDemeter
     {
         public void RedrawUI(Gun gun)
         {
-           print(gun.ammo.roundsLeft);
+           print(gun.GetRoundsLeft());
         }
     }
 }

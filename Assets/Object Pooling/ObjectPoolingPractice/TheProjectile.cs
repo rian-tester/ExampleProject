@@ -1,8 +1,16 @@
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class TheProjectile : MonoBehaviour
 {
     [SerializeField] float speed;
+
+    private IObjectPool<TheProjectile> projectilePool;
+
+    public void SetPool(IObjectPool<TheProjectile> projectile)
+    {
+        projectilePool = projectile;
+    }
 
     void Update()
     {
@@ -10,6 +18,6 @@ public class TheProjectile : MonoBehaviour
     }
     private void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        projectilePool.Release(this);
     }
 }

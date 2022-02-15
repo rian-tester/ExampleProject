@@ -16,28 +16,30 @@ public class TheGun : MonoBehaviour
             (
             CreateProjectile,
             OnGet,
-            Onrelease
+            Onrelease,
+            OnDestroy,
+            maxSize: 5
             );
     }
-
-    private void OnGet(TheProjectile theProjectile)
-    {
-        theProjectile.gameObject.SetActive(true);
-        theProjectile.transform.position = transform.position + offset;
-    }
-
-    private void Onrelease(TheProjectile theProjectile)
-    {
-        theProjectile.gameObject.SetActive(false);
-    }
-
     private TheProjectile CreateProjectile()
     {
         TheProjectile instance = Instantiate(projectilePrefab);
         instance.SetPool(projectilePool);
         return instance;
     }
-
+    private void OnGet(TheProjectile theProjectile)
+    {
+        theProjectile.gameObject.SetActive(true);
+        theProjectile.transform.position = transform.position + offset;
+    }
+    private void Onrelease(TheProjectile theProjectile)
+    {
+        theProjectile.gameObject.SetActive(false);
+    }
+    private void OnDestroy(TheProjectile theProjectile)
+    {
+        Destroy(theProjectile.gameObject);
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))

@@ -1,17 +1,29 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class TheGun : MonoBehaviour
 {
-    [SerializeField] GameObject projectilePrefab;
+    [SerializeField] TheProjectile projectilePrefab;
+
+    private IObjectPool<TheProjectile> projectilePool;
+
+    private void Awake()
+    {
+        projectilePool = new ObjectPool<TheProjectile>(CreateProjectile);
+    }
+
+    private TheProjectile CreateProjectile()
+    {
+        return Instantiate(projectilePrefab);
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            projectilePrefab.transform.position = transform.position;
-            Instantiate(projectilePrefab);
+            projectilePool.Get();       
         }
     }
 }

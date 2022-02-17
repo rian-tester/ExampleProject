@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class StateMachinePattern : MonoBehaviour, StateContext
@@ -5,9 +6,14 @@ public class StateMachinePattern : MonoBehaviour, StateContext
     private BaseState currentState = new IdleState();
     [SerializeField] private Movement movement;
 
+    public event Action onStateChange;
+
+    public BaseState CurrentState { get => currentState; }
+
     public void SetState(BaseState newState)
     {
         currentState = newState;
+        if (onStateChange != null) onStateChange();
     }
 
     void Moving() => currentState.Moving(this);

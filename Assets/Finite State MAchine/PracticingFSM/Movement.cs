@@ -23,14 +23,13 @@ public class Movement : MonoBehaviour
             if (onStill != null) onStill();
         }
         Moving();
-        Rotating();
-
+        Rotating(); 
     }
     void Moving()
     {
         float translation = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
         if (translation == 0) return;
-        transform.Translate(0,translation,0); 
+        transform.Translate(0,translation,0);
         if (onMoving != null) onMoving();
     }
     void Rotating()

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ISquareAbility
 {
-    void UseAbility(SquareAbilitySystem ability);
+    void UseAbility(SquareAbilitySystem abilitySystem);
 }

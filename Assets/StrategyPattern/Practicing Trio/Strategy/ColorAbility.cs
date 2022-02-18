@@ -1,18 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorAbility : MonoBehaviour
+public class ColorAbility : ISquareAbility
 {
-    // Start is called before the first frame update
-    void Start()
+    public void UseAbility(SquareAbilitySystem abilitySystem)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        abilitySystem.SpriteRenderer.color = Color.red;
+        // do more thing about this color
     }
 }

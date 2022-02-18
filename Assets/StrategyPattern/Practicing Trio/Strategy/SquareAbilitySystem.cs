@@ -14,12 +14,4 @@ public class SquareAbilitySystem : MonoBehaviour
         currentAbility = abilityType;
         currentAbility?.UseAbility(this);
     }
-    IEnumerator RevertColor()
-    {
-        Debug.Log("Coroutine is called");
-        yield return new WaitForSeconds(1.0f);
-        SpriteRenderer.color = Color.white;
-        //revert more thing about color
-        StopAllCoroutines();
-    }
 }

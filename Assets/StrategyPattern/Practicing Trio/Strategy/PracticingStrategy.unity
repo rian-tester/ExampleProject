@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7744da22e4235048adfd4aa247c0900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilitySystem: {fileID: 2118533774}
 --- !u!4 &1027409642
 Transform:
   m_ObjectHideFlags: 0
@@ -5161,6 +5162,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a845aa294ceb5ec459918574c542602d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 1027409641}
   ParticleEffect: {fileID: 1432544568}
   SpriteRenderer: {fileID: 2118533772}

@@ -5,31 +5,18 @@ using UnityEngine;
 public class SquareAbilitySystem : MonoBehaviour
 {
     private ISquareAbility currentAbility = null;
-    [SerializeField] private InputHandler input;
 
     public ParticleSystem ParticleEffect;
     public SpriteRenderer SpriteRenderer;
 
-    private void UseParticle()
+    public void SetTheAbiltyType (ISquareAbility abilityType)
     {
-        currentAbility = new ParticleAbility();
-        currentAbility.UseAbility(this);
+        currentAbility = abilityType;
+        RunTheAbility();
     }
-    private void ChangeColor()
+    private void RunTheAbility()
     {
-        currentAbility = new ColorAbility();
-        currentAbility.UseAbility(this);
-        StartCoroutine(RevertColor());
-    }
-    private void OnEnable()
-    {
-        input.onAbilityOne += UseParticle;
-        input.onAbilityTwo += ChangeColor;
-    }
-    private void OnDisable()
-    {
-        input.onAbilityOne -= UseParticle;
-        input.onAbilityTwo += ChangeColor;
+        currentAbility?.UseAbility(this);
     }
     IEnumerator RevertColor()
     {

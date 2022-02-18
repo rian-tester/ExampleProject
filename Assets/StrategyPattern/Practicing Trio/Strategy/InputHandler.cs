@@ -3,18 +3,16 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    public event Action onAbilityOne;
-    public event Action onAbilityTwo;
+    [SerializeField] SquareAbilitySystem abilitySystem;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (onAbilityOne != null) onAbilityOne();
-            Debug.Log("Q is pressed");
+            abilitySystem.SetTheAbiltyType(new ParticleAbility());
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (onAbilityTwo != null) onAbilityTwo();
+            abilitySystem.SetTheAbiltyType(new ColorAbility());
         }
     }
 }

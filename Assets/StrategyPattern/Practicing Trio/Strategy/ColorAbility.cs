@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class ColorAbility : ISquareAbility
 {
-    public void AssignAbility (SquareAbilitySystem abilitySystem)
-    {
-        abilitySystem.SetTheAbiltyType(this);
-    }
     public void UseAbility(SquareAbilitySystem abilitySystem)
     {
         bool isRed = (abilitySystem.SpriteRenderer.color == Color.red);

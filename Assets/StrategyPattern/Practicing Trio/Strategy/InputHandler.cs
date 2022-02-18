@@ -10,6 +10,7 @@ public class InputHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (onAbilityOne != null) onAbilityOne();
+            Debug.Log("Q is pressed");
         }
         if (Input.GetKeyDown(KeyCode.E))
         {

@@ -8,11 +8,12 @@ public class ColorAbility : ISquareAbility
     public void AssignAbility (SquareAbilitySystem abilitySystem)
     {
         abilitySystem.SetTheAbiltyType(this);
-        UseAbility (abilitySystem);
     }
     public void UseAbility(SquareAbilitySystem abilitySystem)
     {
-        abilitySystem.SpriteRenderer.color = Color.red;
+        bool isRed = (abilitySystem.SpriteRenderer.color == Color.red);
+        if (isRed) abilitySystem.SpriteRenderer.color = Color.white;
+        else abilitySystem.SpriteRenderer.color = Color.red;
         // do more thing about this color
     }
 }

@@ -12,14 +12,11 @@ public class SquareAbilitySystem : MonoBehaviour
     public void SetTheAbiltyType (ISquareAbility abilityType)
     {
         currentAbility = abilityType;
-        RunTheAbility();
-    }
-    private void RunTheAbility()
-    {
         currentAbility?.UseAbility(this);
     }
     IEnumerator RevertColor()
     {
+        Debug.Log("Coroutine is called");
         yield return new WaitForSeconds(1.0f);
         SpriteRenderer.color = Color.white;
         //revert more thing about color

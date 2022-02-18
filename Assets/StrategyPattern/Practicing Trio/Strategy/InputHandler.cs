@@ -4,6 +4,7 @@ using UnityEngine;
 public class InputHandler : MonoBehaviour
 {
     public event Action onBlinking;
+    public event Action onBackAndForth;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
@@ -12,7 +13,7 @@ public class InputHandler : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-
+            if (onBackAndForth != null) onBackAndForth();
         }
     }
 }

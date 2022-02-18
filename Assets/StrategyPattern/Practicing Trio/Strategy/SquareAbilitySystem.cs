@@ -10,17 +10,17 @@ public class SquareAbilitySystem : MonoBehaviour
 
     public ParticleSystem ParticleEffect;
     public SpriteRenderer SpriteRenderer;
-    public Vector2 forward = new Vector2(3f, 0);
-    public Vector2 vector2 = new Vector2(-3f, 0);
+    public Vector2 forwardMovement = new Vector2(3f, 0);
+    public Vector2 backwardMovement = new Vector2(-3f, 0);
 
-    private void SetTheAbiltyType (ISquareAbility abilityType)
+    private void SetTheAbilty (ISquareAbility abilityType)
     {
         currentAbility = abilityType;
         currentAbility?.UseAbility(this);
     }
     private void Blinking()
     {
-        SetTheAbiltyType
+        SetTheAbilty
             (new AbilitySequence(new ISquareAbility[]
             {
                 new ParticleAbility(),
@@ -28,12 +28,26 @@ public class SquareAbilitySystem : MonoBehaviour
                 new DelayerDecorator (new ColorAbility())
             }));
     }
+    private void BackAndForth()
+    {
+        SetTheAbilty(new AbilitySequence(new ISquareAbility[]
+        {
+            new ForwardAbility(),
+            new ColorAbility(),
+            new DelayerDecorator(new ColorAbility()),
+            new DelayerDecorator(new BackwardAbility())
+
+        }));
+        
+    }
     private void OnEnable()
     {
         input.onBlinking += Blinking;
+        input.onBackAndForth += BackAndForth;
     }
     private void OnDisable()
     {
-        
+        input.onBlinking -= Blinking;
+        input.onBackAndForth -= BackAndForth;
     }
 }

@@ -14,5 +14,15 @@ public class InputHandler : MonoBehaviour
         {
             abilitySystem.SetTheAbiltyType(new ColorAbility());
         }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            abilitySystem.SetTheAbiltyType
+                (
+                    new DelayerDecorator 
+                    (
+                        new ParticleAbility()
+                    )
+                );
+        }
     }
 }

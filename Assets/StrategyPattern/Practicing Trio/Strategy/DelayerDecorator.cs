@@ -10,11 +10,11 @@ public class DelayerDecorator : ISquareAbility
     {
         wrappedOne = strategyToWrapped;
     }
-    public void UseAbility(SquareAbilitySystem abilitySystem)
+    public async void UseAbility(SquareAbilitySystem abilitySystem)
     {
         // the decoration, in this case some delayer
-        Task.Delay(2500);
+        await Task.Delay (2000);
         wrappedOne.UseAbility(abilitySystem);
-
+        Debug.Log("Particle playing after 2 seconds!");
     }
 }
